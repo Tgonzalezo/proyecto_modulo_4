@@ -225,6 +225,12 @@ gestor_clientes/
     ├── test_cliente.py
     └── test_gestor_clientes.py
 
+## Diagrama UML
+
+A continuación se presenta el diagrama de clases UML del sistema:
+
+![Diagrama UML del Gestor de Clientes](documentacion/diagrama_uml.png)
+
 ## Autor
 
 Tamara González Orellana
