@@ -1,0 +1,42 @@
+[
+    {
+        "id_cliente": 2,
+        "nombre": "Myriam Orellana",
+        "email": "myriam.orellana@gmail.com",
+        "telefono": "923456789",
+        "direccion": "Santiago",
+        "tipo": "ClientePremium"
+    },
+    {
+        "id_cliente": 3,
+        "nombre": "Cesar Gonzalez",
+        "email": "cesar@gmail.com",
+        "telefono": "934567890",
+        "direccion": "San Bernardo",
+        "tipo": "ClienteCorporativo"
+    },
+    {
+        "id_cliente": 1,
+        "nombre": "Tomas Orlando Gonzalez",
+        "email": "tomas@gmail.com",
+        "telefono": "012345678",
+        "direccion": "San Miguel",
+        "tipo": "ClienteRegular"
+    },
+    {
+        "id_cliente": 4,
+        "nombre": "tamara gonzalez",
+        "email": "tamara@gmail.com",
+        "telefono": "965474766",
+        "direccion": "san bernardo",
+        "tipo": "ClientePremium"
+    },
+    {
+        "id_cliente": 5,
+        "nombre": "locky",
+        "email": "locky@gmaill.com",
+        "telefono": "123456789",
+        "direccion": "san bernardo",
+        "tipo": "ClienteRegular"
+    }
+]

@@ -1,0 +1,6 @@
+﻿id_cliente,nombre,email,telefono,direccion,tipo_cliente,beneficio
+2,Myriam Orellana,myriam.orellana@gmail.com,923456789,Santiago,ClientePremium,Atención personalizada y 30% de descuento
+3,Cesar Gonzalez,cesar@gmail.com,934567890,San Bernardo,ClienteCorporativo,40% de descuento y atención personalizada
+1,Tomas Orlando Gonzalez,tomas@gmail.com,012345678,San Miguel,ClienteRegular,20% de descuento
+4,tamara gonzalez,tamara@gmail.com,965474766,san bernardo,ClientePremium,Atención personalizada y 30% de descuento
+5,locky,locky@gmaill.com,123456789,san bernardo,ClienteRegular,20% de descuento
