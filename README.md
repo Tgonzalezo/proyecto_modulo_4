@@ -24,7 +24,7 @@ Además, incorpora validaciones de datos, manejo de excepciones, persistencia en
 - Detectar clientes duplicados.
 - Guardar y cargar clientes desde JSON.
 - Exportar clientes a CSV.
-- Registrar errores en archivos de log.
+- Registrar errores mediante logs.
 - Gestionar clientes mediante una interfaz gráfica desarrollada con Tkinter.
 
 ---
@@ -81,22 +81,35 @@ Las siguientes clases heredan de `Cliente`:
 
 Cada tipo de cliente implementa el método:
 
-`obtener_beneficio()`
+```python
+obtener_beneficio()
+```
 
-El comportamiento del método cambia según el tipo de cliente.
+El comportamiento de este método cambia según el tipo de cliente.
 
 ### Encapsulación
 
 Los atributos de email y teléfono utilizan propiedades para controlar el acceso y realizar validaciones antes de almacenar los datos.
 
+Se utilizan los atributos protegidos:
+
+```python
+_email
+_telefono
+```
+
+junto con `@property` y `@setter`.
+
 ### Métodos especiales
 
-La clase `Cliente` incorpora:
+La clase `Cliente` incorpora los métodos especiales:
 
-- `__str__()`
-- `__eq__()`
+```python
+__str__()
+__eq__()
+```
 
-Estos métodos permiten representar objetos como texto y comparar clientes.
+Estos permiten representar objetos como texto y comparar clientes según su ID.
 
 ---
 
@@ -110,7 +123,9 @@ El email debe contener una estructura válida.
 
 Ejemplo:
 
-`cliente@gmail.com`
+```text
+cliente@gmail.com
+```
 
 ### Teléfono
 
@@ -131,11 +146,31 @@ El proyecto utiliza excepciones personalizadas:
 
 Estas permiten controlar errores específicos del sistema.
 
-Los errores también son registrados mediante el módulo `logging`.
+Los errores también son registrados utilizando el módulo estándar `logging`.
 
 El archivo de registro se encuentra en:
 
-`logs/errores.log`
+```text
+logs/errores.log
+```
+
+---
+
+## Gestión de clientes
+
+La clase `GestorClientes` administra la colección de clientes del sistema.
+
+Incluye los siguientes métodos:
+
+```python
+agregar_cliente()
+listar_clientes()
+buscar_cliente()
+editar_cliente()
+eliminar_cliente()
+```
+
+El gestor también controla que no existan clientes con el mismo ID.
 
 ---
 
@@ -145,15 +180,19 @@ El archivo de registro se encuentra en:
 
 Los clientes se guardan automáticamente en:
 
-`datos/clientes.json`
+```text
+datos/clientes.json
+```
 
-Al iniciar el programa, los clientes guardados anteriormente son cargados nuevamente.
+Al iniciar el programa, los clientes almacenados anteriormente son cargados nuevamente.
 
 ### CSV
 
 El sistema permite exportar los clientes a:
 
-`datos/clientes.csv`
+```text
+datos/clientes.csv
+```
 
 El archivo incluye:
 
@@ -181,6 +220,12 @@ Permite:
 - Exportar información a CSV.
 - Limpiar los campos del formulario.
 
+La clase principal de la interfaz es:
+
+```text
+VentanaPrincipal
+```
+
 ---
 
 ## Estructura del proyecto
@@ -194,6 +239,9 @@ gestor_clientes/
 ├── datos/
 │   ├── clientes.json
 │   └── clientes.csv
+│
+├── documentacion/
+│   └── diagrama_uml.png
 │
 ├── excepciones/
 │   ├── __init__.py
@@ -224,15 +272,122 @@ gestor_clientes/
     ├── __init__.py
     ├── test_cliente.py
     └── test_gestor_clientes.py
+```
+
+---
 
 ## Diagrama UML
 
-A continuación se presenta el diagrama de clases UML del sistema:
+El proyecto incluye un diagrama de clases UML que representa la estructura principal del sistema.
+
+Se incluyen relaciones de:
+
+- Herencia.
+- Agregación.
+- Composición.
+- Dependencia con excepciones personalizadas.
+
+Las principales relaciones son:
+
+- `ClienteRegular` hereda de `Cliente`.
+- `ClientePremium` hereda de `Cliente`.
+- `ClienteCorporativo` hereda de `Cliente`.
+- `GestorClientes` administra una colección de objetos `Cliente`.
+- `VentanaPrincipal` contiene un objeto `GestorClientes`.
+- `Cliente` utiliza las excepciones `EmailInvalidoError` y `TelefonoInvalidoError`.
+- `GestorClientes` utiliza `ClienteDuplicadoError`.
+
+A continuación se presenta el diagrama UML del sistema:
 
 ![Diagrama UML del Gestor de Clientes](documentacion/diagrama_uml.png)
 
+---
+
+## Pruebas unitarias
+
+El proyecto utiliza el módulo estándar `unittest`.
+
+Para ejecutar todas las pruebas, utilizar:
+
+```bash
+python -m unittest discover tests
+```
+
+Actualmente se ejecutan 11 pruebas unitarias para validar:
+
+- Creación de clientes.
+- Validación de email.
+- Validación de teléfono.
+- Beneficio del cliente regular.
+- Beneficio del cliente premium.
+- Beneficio del cliente corporativo.
+- Registro de clientes.
+- Búsqueda de clientes.
+- Edición de clientes.
+- Eliminación de clientes.
+- Detección de clientes duplicados.
+
+El resultado esperado es:
+
+```text
+Ran 11 tests
+
+OK
+```
+
+---
+
+## Requisitos
+
+- Python 3.
+- Tkinter.
+
+Los demás módulos utilizados forman parte de la biblioteca estándar de Python:
+
+- `json`
+- `csv`
+- `logging`
+- `unittest`
+- `os`
+
+---
+
+## Ejecución del programa
+
+Abrir una terminal dentro de la carpeta:
+
+```text
+gestor_clientes
+```
+
+Ejecutar:
+
+```bash
+python main.py
+```
+
+Se abrirá la interfaz gráfica del Gestor Inteligente de Clientes.
+
+---
+
+## Tecnologías utilizadas
+
+- Python 3
+- Programación Orientada a Objetos
+- Tkinter
+- JSON
+- CSV
+- Logging
+- Unittest
+- UML
+- Visual Studio Code
+- Git
+- GitHub
+
+---
+
 ## Autor
 
-Tamara González Orellana
+**Tamara González Orellana**
 
-Proyecto desarrollado como evaluación del módulo 4
+Proyecto desarrollado como evaluación del módulo 4.
